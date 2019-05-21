@@ -1,0 +1,18 @@
+node {
+   stage('init'){
+       echo 'Initial setup done'
+   }
+   stage ('code_checkout'){
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'My_GIT', url: 'https://github.com/priyankalakshmanan/demo/']]])
+       echo 'Checking code is done'
+   }
+   stage('build'){
+       echo 'Building in progress'
+   }
+   stage('package'){
+       echo 'Packaged'
+   }
+   stage('unit_test'){
+       echo 'testing done'
+   }
+}   
